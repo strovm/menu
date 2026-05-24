@@ -1,0 +1,93 @@
+.logo{
+    position: relative;
+    width: 60%;
+    left: 15%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    padding: 20px;
+    width: 90%;
+}
+
+/* Lógica del movimiento de los menús */
+.card {
+    width: 100%;
+    aspect-ratio: 1484 / 1920; /* Dimensiones de las imagen */
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card-wrapper {
+    display: none; /* Oculto por defecto */
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Se utiliza 'cover' para que la imagen no se vea recortada */
+    display: block;
+}
+
+.navbar {
+    width: 95%;
+    background: #fa8e29;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar button {
+    background: transparent;
+    color: white;
+    border: 2px solid transparent;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: border 0.2s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Contorno para resaltar el botón activo */
+.navbar button.active {
+    height: 50px;
+    border: 2px solid white;
+}
